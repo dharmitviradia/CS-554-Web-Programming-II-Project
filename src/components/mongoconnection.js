@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient
 const settings = {
   mongoConfig: {
-    serverUrl: 'mongodb+srv://stonkmarket:m0ng0.db@cluster0.ao3cp.mongodb.net/stonkmarket?retryWrites=true&w=majority',
+    serverUrl: 'mongodb+srv://stonkmarket:m0ng0.db@cluster0.q0b39.mongodb.net/stonkmarket?retryWrites=true&w=majority',
     database: 'stonkmarket'
   }
 }
