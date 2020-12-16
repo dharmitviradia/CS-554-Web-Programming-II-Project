@@ -2,6 +2,8 @@
 import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
+import HomePage from '../components/HomePage'
+import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
 
 // Configure Firebase.
 const config = {
@@ -31,6 +33,20 @@ const uiConfig = {
 
 const SignIn = () => {
   
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      return(
+        <div>
+          <Router>
+          <Route exact path='/' component ={HomePage}></Route>
+          <Redirect to='/'/>
+            </Router>
+        </div>
+      )
+      
+    } 
+    });
+
     return (
       <div>
         <h1>My App</h1>
