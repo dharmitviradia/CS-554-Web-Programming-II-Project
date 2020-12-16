@@ -3,26 +3,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import SignIn from '../components/SignIn'
 import Company from '../components/CompanyPage'
 import HomePage from '../components/HomePage'
+// import Profile from '../components/Profile'
 import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
 import Search from './Seach';
 import firebase from 'firebase'
-import stocks from '../data/stocks'
+
 
 
 function App() {
 
-  
-  
-  const addStocks = async () =>{
-    let obj = await stocks.addStocks();
-      if(!obj || obj.size() === 0) obj = "This is an empty string";
-      console.log(obj);
-  }
-  
-
-  
-  addStocks();
-  
   const[loggedIn,setLoggedIn] = useState(false);
 
   const verifyUser = async () =>{
@@ -70,6 +59,7 @@ function App() {
           <div className='App-body'>
               <Route exact path='/' component ={HomePage}></Route>
               <Route exact path='/company-page' component ={Company}></Route>
+              {/* <Route exact path='/profile' component={Profile}></Route> */}
           </div>
           
         </Router>
