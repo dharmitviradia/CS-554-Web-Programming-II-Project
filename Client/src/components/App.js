@@ -1,17 +1,16 @@
 import '../App.css';
 import React, { useState, useEffect, useRef } from 'react';
-import SignIn from '../components/SignIn'
-import Company from '../components/CompanyPage'
-import HomePage from '../components/HomePage'
-// import Profile from '../components/Profile'
+import SignIn from './SignIn'
+import Company from './CompanyPage'
+import HomePage from './HomePage'
+import Profile from './Profile'
 import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
-import Search from './Seach';
+import Search from './Search';
 import firebase from 'firebase'
 
 
-
 function App() {
-
+  
   const[loggedIn,setLoggedIn] = useState(false);
 
   const verifyUser = async () =>{
@@ -59,7 +58,7 @@ function App() {
           <div className='App-body'>
               <Route exact path='/' component ={HomePage}></Route>
               <Route exact path='/company-page' component ={Company}></Route>
-              {/* <Route exact path='/profile' component={Profile}></Route> */}
+              <Route exact path='/profile' component={Profile}></Route>
           </div>
           
         </Router>

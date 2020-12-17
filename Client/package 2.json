@@ -8,10 +8,9 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
-    "express": "^4.17.1",
     "finnhub": "^1.2.1",
     "firebase": "^8.1.1",
-    "mongodb": "^3.6.3",
+    "plotly.js": "^1.58.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-firebaseui": "^4.1.0",
@@ -48,5 +47,16 @@
   },
   "devDependencies": {
     "react-socket-io": "^0.2.5"
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dharmitviradia/CS-554-Web-Programming-II-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dharmitviradia/CS-554-Web-Programming-II-Project/issues"
   }
 }

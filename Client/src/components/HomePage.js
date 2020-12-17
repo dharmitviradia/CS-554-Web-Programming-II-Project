@@ -1,5 +1,4 @@
 import React from 'react';
-import Company from '../components/CompanyPage'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 const SignIn = () => {

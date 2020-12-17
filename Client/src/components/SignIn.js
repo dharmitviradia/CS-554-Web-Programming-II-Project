@@ -2,7 +2,7 @@
 import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
-import HomePage from '../components/HomePage'
+import HomePage from './HomePage'
 import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
 
 // Configure Firebase.

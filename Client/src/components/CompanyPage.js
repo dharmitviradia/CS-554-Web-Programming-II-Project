@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-const CompanyPage = () => {
+const CompanyPage = (props) => {
 
     const [ companyData, setCompanyData ] = useState(undefined);
     const [ stockData, setStockData ] = useState("");
@@ -55,7 +55,8 @@ const CompanyPage = () => {
 		() => {
     async function fetchData() {
         try {
-            const { data} = await axios.get('https://finnhub.io/api/v1/stock/profile2?symbol=AAPL&token=bv67ig748v6phr4ccf60');
+            let API_Call = `https://finnhub.io/api/v1/stock/profile2?symbol=${props.symbol}&token=bv67ig748v6phr4ccf60`
+            const { data} = await axios.get(API_Call);
             setCompanyData(data);
             setLoading(false);
             
@@ -154,9 +155,6 @@ const onChange = () => {
     
 };
     
-
- 
-
     if (loading || loading2) {
 		return (
 			<div>
