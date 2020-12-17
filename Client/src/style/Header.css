@@ -1,0 +1,13 @@
+header {
+  /* background-color: aquamarine; */
+}
+.header-right-btns {
+  float: right;
+}
+#logo-text {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  font-family: 'Pacifico', cursive;  
+  color: rgb(179, 62, 62);
+}
