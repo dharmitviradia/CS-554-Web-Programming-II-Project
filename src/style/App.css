@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#app-container {
+  margin-top: 5px;
+}
+.btn-container {
+  padding: 5px 0;
+}

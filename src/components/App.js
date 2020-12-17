@@ -1,21 +1,40 @@
-import '../App.css';
-import SignIn from '../components/SignIn'
-import HomePage from '../components/HomePage'
-import Profile from '../components/Profile'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import '../style/App.css';
+import React from 'react';
+import { Container } from '@material-ui/core';
+import axios from 'axios';
+import Header from './Header';
+import MarketNews from './MarketNews';
 
-function App() {
-  return (
-    <div className="App">
+class App extends React.Component {
 
-      <Router>
-        <Route exact path='/' component={HomePage}></Route>
-        <Route exact path='/sign-in' component={SignIn}></Route>
-        <Route exact path='/profile' component={Profile}></Route>
-      </Router>
+  state = { marketNews: [], startOffset: 0, endOffset: 9 };
 
-    </div>
-  );
+  async componentDidMount() {
+    await axios.get('https://finnhub.io/api/v1/news?category=general&token=bvbv2mn48v6rqg57nvcg').then(res => {
+      const marketNews = res.data;
+      this.setState({ marketNews });
+    });
+  }
+
+  onShowMoreClick = (endOffSet) => {
+    this.setState({ startOffset: this.state.endOffset, endOffSet: this.state.endOffset+10 });
+  }
+
+  render() {
+    console.log(this.state.marketNews);
+    return (
+      <Container id="app-container">
+        <Header />
+        <br />
+        <hr />
+        <MarketNews 
+          marketNewsData={this.state.marketNews} 
+          startOffset={this.state.startOffset}
+          endOffset={this.state.endOffset}
+        />
+      </Container>
+    );
+  }
 }
 
 export default App;
