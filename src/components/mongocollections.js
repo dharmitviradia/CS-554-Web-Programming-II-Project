@@ -14,4 +14,6 @@ const getCollectionFn = (collection) => {
 
 module.exports = {
 	companies: getCollectionFn("companies"),
+	mystock: getCollectionFn("mystock"),
+	wishlist: getCollectionFn("wishlist")
 }
