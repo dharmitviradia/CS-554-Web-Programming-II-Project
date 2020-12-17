@@ -1,4 +1,4 @@
-const dbConnection = require('./mongoconnection')
+const dbConnection = require('./mongoConnection')
 const getCollectionFn = (collection) => {
 	let _col = undefined
 
@@ -13,7 +13,8 @@ const getCollectionFn = (collection) => {
 }
 
 module.exports = {
-	companies: getCollectionFn("companies"),
-	mystock: getCollectionFn("mystock"),
-	wishlist: getCollectionFn("wishlist")
+  companies: getCollectionFn("companies"),
+  stocks : getCollectionFn("stocks"),
+  wishlist: getCollectionFn("wishlist"),
+  mystock: getCollectionFn("mystock")
 }
