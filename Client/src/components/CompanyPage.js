@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import { react } from 'plotly.js';
 
 
 
@@ -44,8 +43,6 @@ const CompanyPage = (props) => {
       setOpen(true);
     };
   
-    console.log("(***********************************************)" + props.match.params.id)
-
 
     //Function for the modal when closed
     const handleClose = () => {
@@ -57,9 +54,8 @@ const CompanyPage = (props) => {
     useEffect(
 		() => {
     async function fetchData() {
-        
         try {
-            let API_Call = `https://finnhub.io/api/v1/stock/profile2?symbol=${props.match.params.id}&token=bv67ig748v6phr4ccf60`
+            let API_Call = `https://finnhub.io/api/v1/stock/profile2?symbol=${props.symbol}&token=bv67ig748v6phr4ccf60`
             const { data} = await axios.get(API_Call);
             setCompanyData(data);
             setLoading(false);
@@ -82,7 +78,7 @@ useEffect(
 async function fetchData() {
     try {
         const API_KEY = 'bv67ig748v6phr4ccf60';
-        let StockSymbol = props.match.params.id;
+        let StockSymbol = 'AAPL';
         let API_Call = `https://finnhub.io/api/v1/quote?symbol=${StockSymbol}&token=${API_KEY}`;
 
         fetch(API_Call)
@@ -110,12 +106,12 @@ async function fetchData() {
 
 fetchData();
 },[]);
-// console.log(this.props.match.params.id)
+
 // Hook to get data from the graph
 useEffect(()=>{
     function fetchStock() {
         const API_KEY = 'LHLF23MXIQE2SEJK';
-        let StockSymbol = props.match.params.id;
+        let StockSymbol = 'AAPL';
         let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${StockSymbol}&outputsize=compact&apikey=${API_KEY}`;
         let stockChartXValuesFunction = [];
         let stockChartYValuesFunction = [];
@@ -158,15 +154,8 @@ const onChange = () => {
 
     
 };
-    if(!props.match.params.id)
-    {
-        return(
-			<div>
-				<h2>Props Not supplied....</h2>
-			</div>
-        );
-    }
-    else if (loading || loading2) {
+    
+    if (loading || loading2) {
 		return (
 			<div>
 				<h2>Loading....</h2>
@@ -223,7 +212,7 @@ const onChange = () => {
             </div>
             <div>
 
-                <h1>6 month Stock Graph</h1>
+                <h1>Apple Stock Graph</h1>
                 <Plot
           data={[
             {
