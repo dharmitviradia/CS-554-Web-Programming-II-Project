@@ -11,18 +11,23 @@ import firebase from 'firebase'
 
 function App() {
   
-  const[loggedIn,setLoggedIn] = useState(false);
+  const[loggedIn,setLoggedIn] = useState(true);
 
-  const verifyUser = async () =>{
-   await firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        setLoggedIn(true);
-        
-      } else {
-        setLoggedIn(false);
-      }
-      });
-  }
+  useEffect(
+    ()=>{
+    const verifyUser = async () =>{
+      await firebase.auth().onAuthStateChanged(function(user) {
+         if (user) {
+           setLoggedIn(true);
+           
+         } else {
+           setLoggedIn(false);
+         }
+         });
+     }
+     verifyUser();
+    },[]);
+
 
 
     const SignOut = () =>{
@@ -35,21 +40,10 @@ function App() {
 
     }
 
-    verifyUser();
-
     if(loggedIn){
       return (
         <Router>
         <div className="App">
-
-        
-          <Link className='showlink' to='/'>
-              Home
-          </Link>
-            <br></br>
-          <Link className='showlink' to="/company-page">
-              CompanyPage
-          </Link>
             <Search>Search Bar</Search>
             <button onClick={SignOut}>
               Sign out
@@ -58,6 +52,7 @@ function App() {
           <div className='App-body'>
               <Route exact path='/' component ={HomePage}></Route>
               <Route exact path='/company-page' component ={Company}></Route>
+              <Route exact path='/company-page/:id' component ={Company}></Route>
               <Route exact path='/profile' component={Profile}></Route>
           </div>
           

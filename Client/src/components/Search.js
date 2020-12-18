@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
@@ -26,28 +27,28 @@ const Search = () =>{
     fetchData();
 },[]);
 
-const gotoCompPage =(searcedComp)=>{
-    console.log(searchTerm)
+const gotoCompPage =()=>{
+    let sym = searchTerm.split(":");
+    setsearchedComp(sym[1].trim());
 }
         return (
             <div style={{ width: 300 }}>
             <Autocomplete
               id="free-solo-demo"
               freeSolo
-              onChange={(e) => {
-                setSearchTerm(e.target.value)
+              onChange={(eevent, newValue) => {
+                setSearchTerm(newValue)
+
               }
                 
             }
-              options={result.map((option) => option["Company Name"])}
+              options={result.map((option) => option["Company Name"] + " : " + option["Symbol"])}
               renderInput={(params) => (
                 <TextField {...params} label="Stocks" margin="normal" variant="outlined" />
               )}
             />
 
-            <button onClick = {gotoCompPage}>
-
-            </button>
+            <a onClick = {gotoCompPage} href={`/company-page/${searcedComp}`}> Goto CompanyPage </a>
            
           </div>
         )
