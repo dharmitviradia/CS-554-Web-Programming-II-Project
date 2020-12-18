@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {Button} from '@material-ui/core'
+import Button from 'react-bootstrap/Button';
 import axios from 'axios'
 import Plot from 'react-plotly.js';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import { react } from 'plotly.js';
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +20,39 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
     },
+
+    center:{
+        margin: "auto",
+        width: "50%",
+        padding: "10px"
+    },
+
+    image:{
+        width: "3%",
+        paddingRight:"5px"
+    },
+
+    title : {
+        fontSize:"150%",
+        fontFamily:"Times New Roman",
+        margin: "auto",
+        width: "50%",
+        padding: "10px",
+        textDecoration:"none !important",
+        color: "black !important"
+    },
+
+    subTitle:{
+        fontSize:"110%",
+        fontFamily:"Times New Roman",
+        margin: "auto",
+        width: "50%",
+        padding: "10px",
+        textDecoration:"none !important",
+        color: "black !important"
+    },
+
+
   }));
 
 
@@ -176,9 +207,7 @@ const onChange = () => {
 
     return(
         <div>
-            <Button onClick={handleOpen}>
-                Buy
-            </Button>
+
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -212,18 +241,17 @@ const onChange = () => {
                 </div>
                 </Fade>
             </Modal>
-            <img src={companyData.logo}/>
-            <a href={companyData.weburl}>{companyData.name}</a>
-            <div>
-                <ul>
-                    <li>Price Now : {stockData.o}</li>
-                    <li>Today's Low : {stockData.l}</li>
-                    <li>Today's High : {stockData.h}</li>
-                </ul>
-            </div>
-            <div>
+            <div className={classes.center}>
+                    <img className={classes.image} src={companyData.logo} alt={"Company Logo"}/>
+                    <a href={companyData.weburl} className={classes.title}>{companyData.name} </a>
+                    <Button onClick={handleOpen} variant="outline-success">
+                        Buy
+                    </Button>
+                    <div className={classes.subTitle}> Trading at ${stockData.o}   (Low : ${stockData.l}   High : ${stockData.h})</div>
+                    </div>
+            <div className={classes.center} >
 
-                <h1>6 month Stock Graph</h1>
+                <h1 className={classes.center}>6 month Graph</h1>
                 <Plot
           data={[
             {
