@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const configRoutes = require('./routes');
-
+const PORT = process.env.PORT || 4040
 
 
 let noOfRequest = 0;
@@ -40,7 +40,7 @@ app.use(express.json());
 configRoutes(app);
 
 
-app.listen(process.env.PORT || 4040, () => {
+app.listen(PORT, () => {
   console.log("We've now got a server!");
   console.log('Your routes will be running on http://localhost:4040');
 });
