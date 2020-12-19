@@ -40,7 +40,7 @@ app.use(express.json());
 configRoutes(app);
 
 
-app.listen(4040, () => {
+app.listen(process.env.PORT || 4040, () => {
   console.log("We've now got a server!");
   console.log('Your routes will be running on http://localhost:4040');
 });
