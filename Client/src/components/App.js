@@ -1,12 +1,14 @@
 import '../App.css';
 import React, { useState, useEffect, useRef } from 'react';
-import SignIn from './SignIn'
-import Company from './CompanyPage'
-import HomePage from './HomePage'
-import Profile from './Profile'
-import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
+import SignIn from './SignIn';
+import Company from './CompanyPage';
+import MarketNews from './MarketNews';
+import Ipo from './Ipo';
+import HomePage from './HomePage';
+import Profile from './Profile';
+import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom';
 import Search from './Search';
-import firebase from 'firebase'
+import firebase from 'firebase';
 
 
 function App() {
@@ -44,17 +46,36 @@ function App() {
       return (
         <Router>
         <div className="App">
-            <Search>Search Bar</Search>
-            <button onClick={SignOut}>
-              Sign out
-            </button>
+          <nav id="navbar" class="">
+            <div class="nav-wrapper">
+              <div class="logo">
+                <a href="#home"><i class="fas fa-chess-knight"></i>Stonk Market</a>
+              </div>
+
+              <ul id="menu">
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/company-page">Company Page</Link></li>
+                <li><Link to="/market-news">Market News</Link></li>
+                <li><Link to="/ipo">IPO</Link></li>
+                <li><button className="button" onClick={SignOut}>Sign Out</button></li>
+              </ul>
+
+              {/* <Search>Search Bar</Search> */}
             </div>
-          <div className='App-body'>
-              <Route exact path='/' component ={HomePage}></Route>
-              <Route exact path='/company-page' component ={Company}></Route>
-              <Route exact path='/company-page/:id' component ={Company}></Route>
-              <Route exact path='/profile' component={Profile}></Route>
-          </div>
+          </nav>
+        </div>
+
+        <div className='App-body'>
+          <Route exact path='/' component={HomePage}></Route>
+          <Route exact path='/company-page' component={Company}></Route>
+          <Route exact path='/company-page/:id' component={Company}></Route>
+
+          <Route exact path="/market-news" component={MarketNews}></Route>
+
+          <Route exact path="/ipo" component={Ipo}></Route>
+
+          <Route exact path='/profile' component={Profile}></Route>
+        </div>
           
         </Router>
         
