@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
       "start": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server\"",
-      "server": "cd Server && npm install && npm start",
+      "server": "cd Server && npm install && node app.js",
       "client": "cd Client && npm install && npm start"
   },
   "repository": {
