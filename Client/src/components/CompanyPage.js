@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import Search from './Search';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     image:{
-        width: "3%",
+        width: "10%",
         paddingRight:"5px"
     },
 
@@ -52,6 +53,26 @@ const useStyles = makeStyles((theme) => ({
         color: "black !important"
     },
 
+    mainBody :{
+        marginTop:"10%",
+        margin: "auto",
+        width: "50%",
+        padding: "10px"
+    },
+
+    innerBody :{
+        marginTop:"10%",
+    },
+    button: {
+        width:'20%',
+        margin:'5%',
+        padding:'2%',
+        background: '#00CC00',
+        color: '#ffffff',
+        fontSize: 17,
+        fontFamily:'Roboto Mono',
+    },
+
 
   }));
 
@@ -66,7 +87,6 @@ const CompanyPage = (props) => {
     const [ loading2, setLoading2 ] = useState(true);
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const [isDisabled, setisDisabled] = useState(false);
     const [ stocksLeft, setStocksLeft ] = useState("0");
     const [exceedText, setexceedText] = useState(" ");
   
@@ -75,14 +95,11 @@ const CompanyPage = (props) => {
       setOpen(true);
     };
   
-    console.log("(***********************************************)" + props.match.params.id)
-
 
     //Function for the modal when closed
     const handleClose = () => {
       setOpen(false);
     };
-   
 
     //hook for getting the company Data
     useEffect(
@@ -189,7 +206,11 @@ const onChange = () => {
 
     
 };
-    if(!props.match.params.id)
+
+
+
+    
+    if(!props.match.params.id || props.match.params.id.trim() === "")
     {
         return(
 			<div>
@@ -197,6 +218,16 @@ const onChange = () => {
 			</div>
         );
     }
+
+    else if(props.match.params.id==="noData"){
+        console.log("llllllllll"+props.match.params.id);
+        return(
+            <div className={classes.title}  style={{margin:'35%'}}>
+                <h2>Page 404</h2>
+            </div>
+        );
+    }
+
     else if (loading || loading2) {
 		return (
 			<div>
@@ -206,8 +237,9 @@ const onChange = () => {
 	} else if(companyData && stockData) {
 
     return(
-        <div>
-
+        <div className={classes.mainBody}>
+            <Search></Search>
+            <div className={classes.innerBody}>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -241,17 +273,21 @@ const onChange = () => {
                 </div>
                 </Fade>
             </Modal>
-            <div className={classes.center}>
+            <div >
+                <div className={classes.center} style={{marginLeft:"35%"}}>
                     <img className={classes.image} src={companyData.logo} alt={"Company Logo"}/>
                     <a href={companyData.weburl} className={classes.title}>{companyData.name} </a>
-                    <Button onClick={handleOpen} variant="outline-success">
+                    <Button onClick={handleOpen} className={classes.button}>
                         Buy
                     </Button>
-                    <div className={classes.subTitle}> Trading at ${stockData.o}   (Low : ${stockData.l}   High : ${stockData.h})</div>
+                </div>
+                <div className={classes.center}>
+                    <div className={classes.subTitle}> Trading at ${stockData.o}   Low : ${stockData.l}     <br/> High : ${stockData.h}</div>
                     </div>
-            <div className={classes.center} >
+                </div>
+            <div  >
 
-                <h1 className={classes.center}>6 month Graph</h1>
+                <div style={{fontFamily:'Times New Roman', marginBottom:"2%"}}>6 month Graph</div>
                 <Plot
           data={[
             {
@@ -266,6 +302,7 @@ const onChange = () => {
         />
 
             </div>
+        </div>
         </div>
     )
 }
