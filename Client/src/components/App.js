@@ -51,7 +51,7 @@ function App() {
 
               <ul id="menu">
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/company-page/FB" id="AAPL">Company Page</Link></li>
+                <li><Link to="/company-page/AAPL" id="AAPL">Company Page</Link></li>
                 <li><Link to="/market-news">Market News</Link></li>
                 <li><Link to="/ipo">IPO</Link></li>
                 <li><button className="button" onClick={SignOut}>Sign Out</button></li>

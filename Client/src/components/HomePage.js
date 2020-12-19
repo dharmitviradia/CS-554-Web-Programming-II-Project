@@ -1,17 +1,21 @@
-import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
 
-const Profile = () => {
-  
-    return (
-      <div>
-        <h1>You've Signed In</h1>
-        <p>Sucessfully</p>
-          <Link to='/company-page'>Company Page</Link>
-      </div>
-      
-    );
-  
+import axios from 'axios';
+
+
+
+const Profile = (props) =>{
+    const [ mystocks, setmystocks] = useState();
+    const [ wishlist, setwishlist] = useState();
+    const [ loading, setLoading ] = useState(true);
+
+    useEffect(
+        () =>{
+            
+        }
+    )
+
 }
+
 
 export default Profile;

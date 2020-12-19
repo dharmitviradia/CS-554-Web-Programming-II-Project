@@ -13,7 +13,6 @@ const getCollectionFn = (collection) => {
 }
 
 module.exports = {
-  companies: getCollectionFn("companies"),
   stocks : getCollectionFn("stocks"),
   wishlist: getCollectionFn("wishlist"),
   mystock: getCollectionFn("mystock")
