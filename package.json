@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+      "start": "cd Client && npm start",
       "server": "cd Server && npm install && npm start",
-      "client": "cd Client && npm install && npm start",
-      "heroku-postbuild": "cd Client && npm install && npm run build"
+      "client": "cd Client && npm install ",
+      "heroku-postbuild": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",

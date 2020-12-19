@@ -5,19 +5,45 @@ import axios from 'axios';
 
 
 const Profile = (props) =>{
-    const [ mystocks, setmystocks] = useState();
-    const [ wishlist, setwishlist] = useState();
+    const [ mystocks, setmystocks] = useState("");
+    const [ wishlist, setwishlist] = useState("");
     const [ loading, setLoading ] = useState(true);
 
     useEffect(
         () =>{
-            
+          async function getwishlist(){
+          try {
+            let wishlist  = await axios.get(`http://localhost:4040/api/stock/wishlist`)
+            setwishlist(wishlist.data)
+            setLoading(false)
+          }
+          catch(e){
+            console.log(e)
+            setLoading(false)
+          }
         }
-    )
+      getwishlist()
+    },[])
+
+    useEffect(
+      () =>{
+        async function getmystocks(){
+        try {
+          let mystocks  = await axios.get(`http://localhost:4040/api/stock/mystocks`)
+          setmystocks(mystocks.data)
+          setLoading(false)
+        }
+        catch(e){
+          console.log(e)
+          setLoading(false)
+        }
+      }
+    getmystocks()
+  },[])
 
     return(
       <div>
-        <h1>Profile</h1>
+        
       </div>
     )
 
