@@ -1,6 +1,6 @@
 {
   "name": "stonk-market",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
@@ -9,9 +9,11 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
+    "bluebird": "^3.7.2",
     "bootstrap": "^4.5.3",
     "finnhub": "^1.2.1",
     "firebase": "^8.1.1",
+    "node-redis": "^0.1.7",
     "plotly.js": "^1.58.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
@@ -23,6 +25,7 @@
     "react-scripts": "4.0.0",
     "react-select-search": "^2.2.3",
     "react-use-websocket": "^2.2.0",
+    "redis": "^3.0.2",
     "semantic-ui-react": "^2.0.1",
     "web-vitals": "^0.2.4"
   },

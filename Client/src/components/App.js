@@ -5,11 +5,9 @@ import Company from './CompanyPage';
 import MarketNews from './MarketNews';
 import Ipo from './Ipo';
 import HomePage from './HomePage';
-import Profile from './Profile';
 import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom';
 import Search from './Search';
 import firebase from 'firebase';
-
 
 function App() {
   
@@ -21,7 +19,6 @@ function App() {
       await firebase.auth().onAuthStateChanged(function(user) {
          if (user) {
            setLoggedIn(true);
-           
          } else {
            setLoggedIn(false);
          }
@@ -72,8 +69,6 @@ function App() {
           <Route exact path="/market-news" component={MarketNews}></Route>
 
           <Route exact path="/ipo" component={Ipo}></Route>
-
-          <Route exact path='/profile' component={Profile}></Route>
         </div>
           
         </Router>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
-const SignIn = () => {
+const Profile = () => {
   
     return (
       <div>
@@ -14,4 +14,4 @@ const SignIn = () => {
   
 }
 
-export default SignIn;
+export default Profile;

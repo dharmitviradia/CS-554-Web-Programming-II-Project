@@ -281,6 +281,11 @@ const onChange = () => {
                         Buy
                     </Button>
                 </div>
+                <div>
+                <Button onClick={handleOpen} className={classes.button}>
+                        Add to Wishlist 
+                    </Button>
+                </div>
                 <div className={classes.center}>
                     <div className={classes.subTitle}> Trading at ${stockData.o}   Low : ${stockData.l}     <br/> High : ${stockData.h}</div>
                     </div>

@@ -9,7 +9,7 @@ module.exports= {
         const stockCollection = await stocks();
         for (let i = 0; i< stocksJson.length;i++){
           const insertInfo = await stockCollection.insertOne(stocksJson[i]);
-          if (insertInfo.insertedCount === 0) throw 'Could not add movie';
+          if (insertInfo.insertedCount === 0) throw 'Could not add Stock';
         }
           
       },
