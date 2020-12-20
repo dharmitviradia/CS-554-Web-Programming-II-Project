@@ -8,10 +8,10 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Search from './Search';
 
-const mongoCollections = require("../../../Server/config/mongoCollection");
-const mystock = mongoCollections.mystock;
-const wishlist = mongoCollections.wishlist;
-const { ObjectId } = require("mongodb").ObjectID;
+// const mongoCollections = require("../../../Server/config/mongoCollection");
+// const mystock = mongoCollections.mystock;
+// const wishlist = mongoCollections.wishlist;
+// const { ObjectId } = require("mongodb").ObjectID;
 
 
 const useStyles = makeStyles((theme) => ({
@@ -212,15 +212,15 @@ const CompanyPage = (props) => {
 
     };
 
-    const onStockSubmit = () => {
-        const myStockCollection = await mystock();
-        let newStock = {
-            StockName: companyData.name,
-            Qty: setStocksLeft,
-            Symbol: props.match.params.id
-        };
-        const insertInfo = await myStockCollection.insertOne(newStock);
-    }
+    // async function onStockSubmit () {
+    //     const myStockCollection = await mystock();
+    //     let newStock = {
+    //         StockName: companyData.name,
+    //         Qty: setStocksLeft,
+    //         Symbol: props.match.params.id
+    //     };
+    //     const insertInfo = await myStockCollection.insertOne(newStock);
+    // }
 
 
     if (!props.match.params.id || props.match.params.id.trim() === "") {
@@ -268,7 +268,7 @@ const CompanyPage = (props) => {
                             <div className={classes.paper}>
                                 <h2 id="transition-modal-title">Select the number of stocks </h2>
                                 <p>Max Quantity available {companyData.shareOutstanding}</p>
-                                <form onSubmit={onStockSubmit} onChange={(e) => setStocksLeft(e.target.value)}>
+                                {/* <form onSubmit={onStockSubmit} onChange={(e) => setStocksLeft(e.target.value)}> */}
                                     <label>
                                         Quantity:
                             <input type="number" name="name" />
@@ -280,7 +280,7 @@ const CompanyPage = (props) => {
                                         </p>
                                     </div>
                                     <Button onClick={handleClose}> Close </Button>
-                                </form>
+                                {/* </form> */}
                             </div>
                         </Fade>
                     </Modal>

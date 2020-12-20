@@ -34,7 +34,7 @@ const uiConfig = {
 const SignIn = () => {
     return (
       <div>
-        <h1>My App</h1>
+        <h1>Stonk Market</h1>
         <p>Please sign-in:</p>
         <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
       </div>
