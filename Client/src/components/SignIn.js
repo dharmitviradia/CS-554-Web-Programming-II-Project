@@ -33,7 +33,7 @@ const uiConfig = {
 
 const SignIn = () => {
     return (
-      <div>
+      <div className="signIn">
         <h1>Stonk Market</h1>
         <p>Please sign-in:</p>
         <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
