@@ -29,7 +29,7 @@ const Ipo = () => {
       return (
         <div key={data.id}>
             <figure class="snip1529">
-                <img className="ipo-image" src="https://cdn.wallpapersafari.com/56/10/aLXqcy.jpg" alt={data.id} />
+                <img className="ipo-image" src="https://cdn.wallpapersafari.com/56/10/aLXqcy.jpg" alt={data.symbol} role="presentation"/>
                 <div class="date"><span class="day" style={{padding: 5}}>{data.date}</span></div>
 
                 <figcaption>

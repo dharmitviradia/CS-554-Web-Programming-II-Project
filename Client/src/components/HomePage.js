@@ -42,8 +42,8 @@ const Profile = (props) =>{
   },[])
 
     return(
-      <div>
-        
+      <div className="homePage">
+          <h1>Welcome to Stock Market</h1>
       </div>
     )
 

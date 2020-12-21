@@ -430,3 +430,18 @@ footer {
   width: 320px;
   height: 500px;
 }
+
+/* Home */
+
+.homePage {
+  margin: 250px auto;
+  text-align: center;
+}
+
+/* Error */
+
+.error {
+  width: 50%;
+  margin: 250px auto;
+  text-align: center;
+}

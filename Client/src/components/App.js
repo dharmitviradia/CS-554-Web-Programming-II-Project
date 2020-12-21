@@ -5,8 +5,9 @@ import Company from './CompanyPage';
 import MarketNews from './MarketNews';
 import Ipo from './Ipo';
 import HomePage from './HomePage';
-import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link, Redirect, Switch} from 'react-router-dom';
 import Search from './Search';
+import { Alert } from '@material-ui/lab';
 import firebase from 'firebase';
 
 function App() {
@@ -51,7 +52,7 @@ function App() {
 
               <ul id="menu">
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/company-page/AAPL" id="AAPL">Company Page</Link></li>
+                <li><Link to="/company-page/AAPL" id="AAPL">Stocks</Link></li>
                 <li><Link to="/market-news">Market News</Link></li>
                 <li><Link to="/ipo">IPO</Link></li>
                 <li><button className="button" onClick={SignOut}>Sign Out</button></li>
@@ -63,12 +64,17 @@ function App() {
         </div>
 
         <div className='App-body'>
-          <Route exact path='/' component={HomePage}></Route>
-          <Route exact path='/company-page/:id' component={Company}></Route>
+          <Switch>
+            <Route exact path='/' component={HomePage}></Route>
+            <Route exact path='/company-page/:id' component={Company}></Route>
 
-          <Route exact path="/market-news" component={MarketNews}></Route>
+            <Route exact path="/market-news" component={MarketNews}></Route>
 
-          <Route exact path="/ipo" component={Ipo}></Route>
+            <Route exact path="/ipo" component={Ipo}></Route>
+
+            <Route path="*" component={Error404} />
+          </Switch>
+          
         </div>
           
         </Router>
@@ -84,6 +90,14 @@ function App() {
         </div>
       )
     }
+}
+
+function Error404() {
+  return (
+    <Alert severity="error" className="alert error">
+      404: Resource Not Found
+    </Alert>
+  )
 }
 
 export default App;

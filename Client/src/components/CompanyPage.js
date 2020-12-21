@@ -72,8 +72,8 @@ const useStyles = makeStyles((theme) => ({
         width: '20%',
         margin: '5%',
         padding: '2%',
-        background: '#00CC00',
-        color: '#ffffff',
+        background: '#6c6c6c',
+        color: '#eeeeee',
         fontSize: 17,
         fontFamily: 'Roboto Mono',
     },
@@ -292,11 +292,11 @@ const CompanyPage = (props) => {
                                 Buy
                     </Button>
                         </div>
-                        <div>
+                        {/* <div>
                             <Button onClick={handleOpen} className={classes.button}>
                                 Add to Wishlist
                     </Button>
-                        </div>
+                        </div> */}
                         <div className={classes.center}>
                             <div className={classes.subTitle}> Trading at ${stockData.o}   Low : ${stockData.l}     <br /> High : ${stockData.h}</div>
                         </div>
