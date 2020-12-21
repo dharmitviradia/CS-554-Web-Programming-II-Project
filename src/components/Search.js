@@ -3,9 +3,6 @@ import {Button} from '@material-ui/core'
 import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
-import Company from './CompanyPage'
-import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
-
 const Search = () =>{
     const[searchTerm,setSearchTerm] = useState("");
     const[result,setResult] = useState([]);
@@ -14,7 +11,7 @@ const Search = () =>{
 		() => {
     async function fetchData() {
         try {
-            let resultArr = await axios.get(`http://localhost:4040/api/stocks/add/stocks/nyse/companies?searchTerm=${searchTerm}`);
+            let resultArr = await axios.get(`https://stonk-market-server.herokuapp.com/api/stocks/add/stocks/nyse/companies?searchTerm=${searchTerm}`);
             console.log(resultArr.data);
             setResult(resultArr.data);
             console.log(result);
