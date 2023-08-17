@@ -20,7 +20,7 @@
     "react-plotly": "^1.0.0",
     "react-plotly.js": "^2.5.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0",
+    "react-scripts": "5.0.1",
     "react-select-search": "^2.2.3",
     "react-use-websocket": "^2.2.0",
     "semantic-ui-react": "^2.0.1",
